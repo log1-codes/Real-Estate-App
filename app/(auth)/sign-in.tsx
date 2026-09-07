@@ -69,7 +69,7 @@ export default function SignIn() {
     }
   };
 
-  if (signIn.status === "needs_client_trust") {
+  if (signIn?.status === "needs_client_trust") {
     return (
       <View className="flex-1 justify-center px-6 py-12">
         <Image
@@ -91,7 +91,7 @@ export default function SignIn() {
           onChangeText={setCode}
         />
         {
-          errors.fields.code && (
+          errors?.fields?.code && (
             <Text className='text-red-500 mb-4'>
               {errors.fields.code.message}
             </Text>
@@ -147,7 +147,7 @@ export default function SignIn() {
           keyboardType='email-address'
         />
         {
-          errors.fields.identifier && (
+          errors?.fields?.identifier && (
             <Text className='text-red-500 mb-4'>
               {errors.fields.identifier.message}
             </Text>
