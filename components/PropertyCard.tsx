@@ -13,7 +13,7 @@ export default function PropertyCard({
     onUnsave?: () => void;
     showSave?: boolean;
 }) {
-    const router  = useRouter();
+    const router = useRouter();
 
     const isSaved = true;
     return (
@@ -29,7 +29,8 @@ export default function PropertyCard({
             }}
             onPress={() => router.push(`/(root)/property/${property.id}`)}
         >
-            <Image source={{ uri: property.images[0] }}
+            <Image
+                source={property.images.length > 0 ? { uri: property.images[0] } : require("@/assets/images/kribb.png")}
                 className="w-28 h-28"
                 resizeMode="cover"
             />
@@ -77,10 +78,10 @@ export default function PropertyCard({
                 </View>
             </View>
             <TouchableOpacity className="w-10 items-center pt-3">
-                <Ionicons 
-                name={isSaved ? "heart" :"heart-outline"}
-                size={18}
-                color={isSaved ? "#EF4444" :"#9CA3AF"}
+                <Ionicons
+                    name={isSaved ? "heart" : "heart-outline"}
+                    size={18}
+                    color={isSaved ? "#EF4444" : "#9CA3AF"}
                 />
             </TouchableOpacity>
         </TouchableOpacity>
