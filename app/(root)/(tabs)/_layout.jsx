@@ -170,6 +170,9 @@ function IosTabs({ isAdmin }) {
 
 export default function TabLayout() {
   const isAdmin = useUserStore((state) => state.isAdmin);
+  const isAdminResolved = useUserStore((state) => state.isAdminResolved);
+
+  if (!isAdminResolved) return null;
 
   return Platform.OS === "android" ? (
     <AndroidTabs isAdmin={isAdmin} />
